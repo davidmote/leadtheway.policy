@@ -21,6 +21,7 @@ dist
 htmlcov
 coverage.xml
 .mr.developer.cfg
+.coverage
 .installed.cfg
 
 # legacy junk
