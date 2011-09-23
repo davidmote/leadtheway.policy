@@ -9,7 +9,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="leadtheway.policy"
+      title="Lead The Way Site Policy"
       directory="profiles/default"
       description="Installs the leadtheway.policy package"
       provides="Products.GenericSetup.interfaces.EXTENSION"

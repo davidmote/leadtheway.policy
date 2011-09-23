@@ -19,24 +19,31 @@ setup(name='leadtheway.policy',
       author_email='',
       url='http://svn.plone.org/svn/collective/',
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages('src', exclude=['ez_setup']),
+      package_dir={'':'src'},
       namespace_packages=['leadtheway'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
           'Plone',
-          'avrc.theme.leadtheway',
+          'PIL',
+          'plone.app.caching',
           'collective.uploadify',
           'collective.indexing',
+          'avrc.theme.leadtheway',
           'jyu.z3cform.datepicker',
           'collective.geo.bundle',
-          'Products.LinguaPlone',
-          'Solgema.fullcalendar',
-          'collective.dexterity.appointments',         
           'beast.cache',
+          'plone.app.dexterity',
+          'Solgema.fullcalendar',
+          'collective.dexterity.appointments',
           # -*- Extra requirements: -*-
       ],
+    extras_require=dict(
+        test=['plone.app.testing'],
+        ),
+
       entry_points="""
       # -*- Entry points: -*-
 
