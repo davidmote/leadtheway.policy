@@ -1,55 +1,44 @@
-import unittest
+import unittest2 as unittest
+from leadtheway.policy.testing import LEADTHEWAY_POLICY_INTEGRATION_TESTING
+from plone.app.testing import applyProfile
 
-#from zope.testing import doctestunit
-#from zope.component import testing
-from Testing import ZopeTestCase as ztc
+from Products.CMFCore.utils import getToolByName
 
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
-ptc.setupPloneSite()
+class TestSetup(unittest.TestCase):
+    
+    layer = LEADTHEWAY_POLICY_INTEGRATION_TESTING
 
-import leadtheway.policy
+    def test_theme_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('avrc.theme.leadtheway'))        
 
+    def test_indexing_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('collective.indexing'))        
 
-class TestCase(ptc.PloneTestCase):
+    def test_datepicker_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('jyu.z3cform.datepicker'))     
 
-    class layer(PloneSite):
+    def test_geo_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('collective.geo.bundle'))     
 
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            ztc.installPackage(leadtheway.policy)
-            fiveconfigure.debug_mode = False
+    # def test_linguaplone_installed(self):
+    #     portal = self.layer['portal']
+    #     quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+    #     self.assertTrue(quickinstaller.isProductInstalled('Products.LinguaPlone'))   
 
-        @classmethod
-        def tearDown(cls):
-            pass
+    def test_fullcalendar_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('Solgema.fullcalendar'))   
 
-
-def test_suite():
-    return unittest.TestSuite([
-
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='leadtheway.policy',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-        #doctestunit.DocTestSuite(
-        #    module='leadtheway.policy.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='leadtheway.policy',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='leadtheway.policy',
-        #    test_class=TestCase),
-
-        ])
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')
+    def test_appointments_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('collective.dexterity.appointments'))
