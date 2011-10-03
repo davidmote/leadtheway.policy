@@ -6,8 +6,6 @@ version = '0.1.0'
 setup(name='leadtheway.policy',
       version=version,
       description="The collection of products required for the Lead The Way website",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
@@ -34,7 +32,6 @@ setup(name='leadtheway.policy',
           'avrc.theme.leadtheway',
           'jyu.z3cform.datepicker',
           'collective.geo.bundle',
-          'beast.cache',
           'plone.app.dexterity',
           'Solgema.fullcalendar',
           'collective.dexterity.appointments',
@@ -50,6 +47,4 @@ setup(name='leadtheway.policy',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
