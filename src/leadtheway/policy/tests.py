@@ -42,3 +42,8 @@ class TestSetup(unittest.TestCase):
         portal = self.layer['portal']
         quickinstaller = getToolByName(portal, 'portal_quickinstaller')
         self.assertTrue(quickinstaller.isProductInstalled('collective.dexterity.appointments'))
+
+    def test_securelogin_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('beast.securelogin'))
