@@ -28,10 +28,10 @@ setup(
         'plone.app.dexterity',
         'collective.geo.bundle',
         'collective.indexing',
-        'collective.uploadify'
+        'collective.uploadify',
         'jyu.z3cform.datepicker',
         'Solgema.fullcalendar',
-
+          'beast.securelogin',
         'collective.dexterity.appointments',
         'avrc.theme.leadtheway',
         ],
