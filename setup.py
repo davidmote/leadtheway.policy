@@ -23,7 +23,7 @@ setup(
     install_requires=[
         'setuptools',
         'Plone',
-        'PIL',
+        'Pillow',
         'Products.PloneFormGen',
         'plone.app.caching',
         'plone.app.dexterity',
