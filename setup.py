@@ -24,6 +24,7 @@ setup(
         'setuptools',
         'Plone',
         'PIL',
+        'Products.PloneFormGen',
         'plone.app.caching',
         'plone.app.dexterity',
         'collective.geo.bundle',
